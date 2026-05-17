@@ -59,7 +59,7 @@ const AdmissionForm = ({ isOpen, onClose }) => {
                 fixed inset-0
                 z-[1000]
                 flex items-center justify-center
-                p-4 md:p-6
+                p-2 md:p-6
                 overflow-y-auto
               "
             >
@@ -74,7 +74,7 @@ const AdmissionForm = ({ isOpen, onClose }) => {
                   backdrop-blur-xl
                   shadow-[0_20px_80px_rgba(0,0,0,0.25)]
                   border border-white/20
-                  p-6 md:p-10
+                  p-4 md:p-10
                 "
               >
                 {/* Close Button */}
