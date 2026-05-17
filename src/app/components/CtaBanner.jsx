@@ -78,7 +78,7 @@ const CTASection = () => {
 
             {/* ================= Right Form ================= */}
             <AdmissionFormCard
-              ctaSection={ctaSection}
+              ctaSection={true}
               formData={formData}
               errors={errors}
               handleChange={handleChange}

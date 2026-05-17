@@ -16,7 +16,6 @@ const useAdmissionForm = () => {
   const [errors, setErrors] = useState({});
 
   const [showNotification, setShowNotification] = useState(false);
-  const ctaSection = true;
 
   /* ================= Validation ================= */
 
@@ -150,7 +149,6 @@ const useAdmissionForm = () => {
     isFormValid,
     showNotification,
     setShowNotification,
-    ctaSection
   };
 
 };
