@@ -9,6 +9,8 @@ const ProgramsSection = ({ selectedCategory, selectedProgram }) => {
     selectedCategory || "ug",
   );
 
+  const [activeProgram, setActiveProgram] = useState(selectedProgram || "");
+
   // Sync category from FindProgram
   useEffect(() => {
     if (selectedCategory) {
@@ -16,13 +18,18 @@ const ProgramsSection = ({ selectedCategory, selectedProgram }) => {
     }
   }, [selectedCategory]);
 
+  // Sync selected program from FindProgram
+  useEffect(() => {
+    setActiveProgram(selectedProgram || "");
+  }, [selectedProgram]);
+
   // Get programs of active category
   let displayedPrograms = programsData[activeCategory] || [];
 
   // Filter specific selected course
-  if (selectedProgram) {
+  if (activeProgram) {
     displayedPrograms = displayedPrograms.filter(
-      (program) => program.title === selectedProgram,
+      (program) => program.title === activeProgram,
     );
   }
 
@@ -54,7 +61,11 @@ const ProgramsSection = ({ selectedCategory, selectedProgram }) => {
               <button
                 key={category.id}
                 onClick={() => {
+                  // Change category
                   setActiveCategory(category.id);
+
+                  // Clear selected course filter
+                  setActiveProgram("");
                 }}
                 className={`flex items-center gap-3 px-6 py-3 rounded-2xl font-medium transition-all duration-300 ${
                   activeCategory === category.id
