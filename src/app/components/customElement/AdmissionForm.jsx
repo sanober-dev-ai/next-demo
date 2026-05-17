@@ -12,6 +12,7 @@ const AdmissionForm = ({ isOpen, onClose }) => {
     title = "Get Admission Details",
     description = "Fill out the form and our admissions team will connect with you shortly.",
     formData,
+    ctaSection,
     errors,
     handleChange,
     handleSubmit,
@@ -19,7 +20,6 @@ const AdmissionForm = ({ isOpen, onClose }) => {
     showNotification,
     setShowNotification,
   } = useAdmissionForm();
-
   return (
     <>
       {/* Notification */}
@@ -29,7 +29,7 @@ const AdmissionForm = ({ isOpen, onClose }) => {
       />
 
       <AnimatePresence>
-        {isOpen ? (
+        {isOpen && (
           <>
             {/* Overlay */}
             <motion.div
@@ -127,7 +127,8 @@ const AdmissionForm = ({ isOpen, onClose }) => {
               </div>
             </motion.div>
           </>
-        ) : (
+        )}
+        {ctaSection && (
           <div
             className="
               w-full

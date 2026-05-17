@@ -15,6 +15,7 @@ const CTASection = () => {
     isFormValid,
     showNotification,
     setShowNotification,
+    ctaSection,
   } = useAdmissionForm();
 
   return (
@@ -77,6 +78,7 @@ const CTASection = () => {
 
             {/* ================= Right Form ================= */}
             <AdmissionFormCard
+              ctaSection={ctaSection}
               formData={formData}
               errors={errors}
               handleChange={handleChange}

@@ -48,7 +48,7 @@ const Home = () => {
         <CTASection />
       </section>
       <ChatBotCTA />
-      <AdmissionForm isOpen={showAdmissionForm}
+      <AdmissionForm ctaSection={false} isOpen={showAdmissionForm}
         onClose={() => setShowAdmissionForm(false)} />
       <Footer />
     </>
