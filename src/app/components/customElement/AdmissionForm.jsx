@@ -7,12 +7,11 @@ import useAdmissionForm from "../forms/useAdmissionForm";
 import AdmissionNotification from "./Notification";
 import AdmissionFormFields from "../forms/AdmissionFormFields";
 
-const AdmissionForm = ({ isOpen, onClose }) => {
+const AdmissionForm = ({ isOpen, onClose, ctaSection }) => {
   const {
     title = "Get Admission Details",
     description = "Fill out the form and our admissions team will connect with you shortly.",
     formData,
-    ctaSection,
     errors,
     handleChange,
     handleSubmit,
@@ -20,6 +19,17 @@ const AdmissionForm = ({ isOpen, onClose }) => {
     showNotification,
     setShowNotification,
   } = useAdmissionForm();
+
+  const onFormSubmit = async (e) => {
+    const success = await handleSubmit(e);
+
+    if (success) {
+      setTimeout(() => {
+        onClose();
+      }, 1200);
+    }
+  };
+
   return (
     <>
       {/* Notification */}
@@ -116,7 +126,7 @@ const AdmissionForm = ({ isOpen, onClose }) => {
                 <div className="my-6 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
 
                 {/* Form */}
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={onFormSubmit}>
                   <AdmissionFormFields
                     formData={formData}
                     errors={errors}
@@ -149,7 +159,7 @@ const AdmissionForm = ({ isOpen, onClose }) => {
 
             <div className="my-6 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={onFormSubmit} className="space-y-5">
               <AdmissionFormFields
                 formData={formData}
                 errors={errors}

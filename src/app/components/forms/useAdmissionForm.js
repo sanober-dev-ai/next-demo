@@ -136,6 +136,7 @@ const useAdmissionForm = () => {
         setTimeout(() => {
           setShowNotification(false);
         }, 3000);
+        return true;
       }
     },
     [formData, validateField],

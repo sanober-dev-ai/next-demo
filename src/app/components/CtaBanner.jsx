@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import useAdmissionForm from "./forms/useAdmissionForm";
 import AdmissionFormCard from "./customElement/AdmissionForm";
 import AdmissionNotification from "./customElement/Notification";
+import AdmissionForm from "./customElement/AdmissionForm";
 
 const CTASection = () => {
   const {
@@ -77,7 +78,7 @@ const CTASection = () => {
             </div>
 
             {/* ================= Right Form ================= */}
-            <AdmissionFormCard
+            <AdmissionForm
               ctaSection={true}
               formData={formData}
               errors={errors}
